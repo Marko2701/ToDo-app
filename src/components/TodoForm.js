@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-function TodoForm(props) {
-  const [input, setInput] = useState(props.edit ? props.edit.value : '');
-
+const TodoForm = ({
+  edit,
+  onSubmit
+}) => {
+  const [input, setInput] = useState(edit ? edit.value : '');
+  
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -16,7 +20,7 @@ function TodoForm(props) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    props.onSubmit({
+    onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input
     });
@@ -25,7 +29,7 @@ function TodoForm(props) {
 
   return (
     <form onSubmit={handleSubmit} className='todo-form'>
-      {props.edit ? (
+      {edit ? (
         <>
           <input
             placeholder='Update your item'
@@ -33,9 +37,12 @@ function TodoForm(props) {
             onChange={handleChange}
             name='text'
             ref={inputRef}
-            className='todo-input edit'
+            className='todo-form__input todo-form__input-edit'
           />
-          <button onClick={handleSubmit} className='todo-button edit'>
+          <button 
+            onClick={handleSubmit} 
+            className='todo-form__button todo-form__button-edit'
+          >
             Update
           </button>
         </>
@@ -46,17 +53,25 @@ function TodoForm(props) {
             value={input}
             onChange={handleChange}
             name='text'
-            className='todo-input'
+            className='todo-form__input'
             ref={inputRef}
           />
-          <button onClick={handleSubmit} className='todo-button'>
+          <button 
+            onClick={handleSubmit} 
+            className='todo-form__button'
+          >
             Add todo
           </button>
         </>
       )}
     </form>
   );
-}
+};
+
+TodoForm.propTypes = {
+  edit: PropTypes.object,
+  onSubmit: PropTypes.func
+};
 
 export default TodoForm;
 

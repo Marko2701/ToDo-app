@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# ToDo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project enables you to:
+
+- add ToDo's
+- remove ToDo's
+- edit ToDo's
+- cross out ToDo's
+
+# Screenshot
+
+![](images/todo.png)
 
 ## Available Scripts
 

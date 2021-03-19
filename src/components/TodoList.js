@@ -1,27 +1,21 @@
-
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 
-function TodoList() {
+const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
   const addTodo = todo => {
-
     const newTodos = [todo, ...todos];
-
     setTodos(newTodos);
-    console.log(...todos);
   };
 
   const updateTodo = (todoId, newValue) => {
     setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
   };
 
-  const removeTodo = id => {
-      
+  const removeTodo = id => {  
     const removedArr = [...todos].filter(todo => todo.id !== id);
-
     setTodos(removedArr);
   };
 
@@ -37,7 +31,7 @@ function TodoList() {
 
   return (
     <>
-      <h1>What's the Plan for Today?</h1>
+      <h1>What&apos;s the Plan for Today?</h1>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
@@ -47,6 +41,6 @@ function TodoList() {
       />
     </>
   );
-}
+};
 
 export default TodoList;

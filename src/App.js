@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
 
-function App() {
+const App = () => {
   return (
-    <div className="todo-app">
+    <div className="app">
       <TodoList />
     </div>
   );
-}
+};
 
 export default App;

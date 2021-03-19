@@ -1,0 +1,44 @@
+{
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  },
+  "env": {
+      "browser": true,
+      "node": true
+  },
+  "root": true,
+  "parser": "babel-eslint",
+  "plugins": [
+      "react",
+      "react-hooks"
+  ],
+  "rules": {
+      "react/prop-types": 0,
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "no-unused-vars": "warn",
+      "semi": "warn",
+      "max-len": [
+          1,
+          80,
+          2,
+          {
+              "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
+              "ignoreUrls": true
+          }
+      ],
+      "quotes": [
+          2,
+          "single",
+          {
+              "avoidEscape": true
+          }
+      ]
+  },
+  "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+  ]
+}
